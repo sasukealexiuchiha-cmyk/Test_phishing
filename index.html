@@ -93,7 +93,7 @@ a[data-url]{cursor:pointer}
   <div class="form">
     <label for="nm">Escribe tu nombre</label>
     <input id="nm" maxlength="30" placeholder="Ej. María López" autocomplete="given-name">
-    <div class="prev">Tu correo en el quiz: <b id="pv">nombre@outlook.com</b></div>
+    <div class="prev">Tu correo en el quiz: <b id="pv">nombre@coacehl.com</b></div>
     <button class="go" id="go">Comenzar</button>
   </div>
 </section>
@@ -144,7 +144,7 @@ const Q=[
 {b:["Soporte","#0b6bcb","S"],n:"Soporte de Nubeapp",a:"seguridad@nubeapp.com",d:"Hoy, 10:02",s:"Se solicitó un cambio de contraseña",p:1,
  h:`<p>Hola {{n}}:</p><p>Alguien pidió cambiar tu contraseña. Si fuiste tú, confirma aquí:</p><p><a class="btn sus" data-url="https://nubeapp.com.verificacion-segura.info/reset">Cambiar contraseña</a></p><p class="sm">Si no fuiste tú, ignora este correo.</p>`,
  c:["El remitente parece correcto, pero el enlace no lo es.","En el destino, el dominio real es verificacion-segura.info; «nubeapp.com» es solo un subdominio engañoso.","Lee el dominio justo antes de la primera barra «/»."]},
-{b:["Carlos Méndez","#e08a00","C"],a:"carlos.mendez@tuempresa.com",d:"Hoy, 08:15",s:"Reunión movida a las 3 p. m.",p:0,
+{b:["Carlos Méndez","#e08a00","C"],a:"carlos.mendez@coacehl.com",d:"Hoy, 08:15",s:"Reunión movida a las 3 p. m.",p:0,
  h:`<p>Hola {{n}}:</p><p>Movemos la reunión semanal a las 3 p. m. por conflicto de agenda. La sala es la misma y el calendario ya está actualizado.</p><p>Saludos,<br>Carlos</p>`,
  c:["Remitente del dominio de tu empresa y tema cotidiano.","No pide datos, dinero ni hacer clic.","Puedes confirmarlo en tu calendario compartido."]},
 {b:["Contabilidad","#444","C"],a:"contabilidad@proveedor-pagos.net",sa:1,d:"Hoy, 06:50",s:"Factura vencida – abrir adjunto",p:1,
@@ -155,14 +155,14 @@ const Q=[
 let name,email,order,i,res,streak;
 const shuffle=a=>{a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a};
 const slug=v=>v.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim().replace(/[^a-z0-9]+/g,".").replace(/^\.+|\.+$/g,"")||"usuario";
-$("#nm").addEventListener("input",e=>{$("#pv").textContent=slug(e.target.value)+"@outlook.com"});
+$("#nm").addEventListener("input",e=>{$("#pv").textContent=slug(e.target.value)+"@coacehl.com"});
 $("#nm").addEventListener("keydown",e=>{if(e.key==="Enter")start()});
 $("#go").addEventListener("click",start);
 
 function start(){
   const raw=$("#nm").value.trim();
   name=raw?esc(raw.split(/\s+/)[0]):"amigo";
-  email=slug(raw)+"@outlook.com";
+  email=slug(raw)+"@coacehl.com";
   order=shuffle(Q);i=0;res=[];streak=0;
   $("#intro").hidden=true;$("#end").hidden=true;$("#quiz").hidden=false;$("#st").hidden=false;
   $("#dots").innerHTML=order.map(()=>"<i></i>").join("");
